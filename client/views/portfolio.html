@@ -1,0 +1,153 @@
+<template name="views_portfolio">
+   <header>
+        <div class="account-head">
+            <div class="account-head-left">
+                {{> dapp_identicon identity=investmentAccount class="dapp-small"}}
+                <h2>investment account</h2>
+                <p>{{ investmentAccount }} <a href="#" class="copy" title="Copy"></a></p>
+                <p><span>{{ hvnBalance }}</span> <span class="currency">HVN</span></p>
+            </div>
+            <div class="account-head-right">
+                <div class="payment-item">
+                    <span>{{ awaitingPayments }}</span> <span class="currency">eur</span>
+                    <p>awaiting payment</p>
+                </div>
+                <div class="payment-item">
+                    <span>{{ receivedPayments }}</span> <span class="currency">eur</span>
+                    <p>received payment</p>
+                </div>
+                <div class="payment-item">
+                    <span>2953,50</span> <span class="currency">eur</span>
+                    <p>total invested</p>
+                </div>
+                <div class="payment-item">
+                    <span>2953,50</span> <span class="currency">eur</span>
+                    <p>total profit</p>
+                </div>
+            </div>
+        </div>
+        <div class="view-options">
+            <div class="view-options-left">
+                <p>sorting:</p>
+
+                <a href="#" class="button">Price</a>
+                <a href="#" class="button">End block</a>
+                <a href="#" class="button active">Start block</a>
+                <a href="#" class="button">Rating</a>
+            </div>
+            <div class="view-options-right">
+                <p>view:</p>
+
+                <a href="#" class="button active">ALL</a>
+                <a href="#" class="button">Owned</a>
+                <a href="#" class="button">To be Sold</a>
+                <a href="#" class="button">Closed</a>
+            </div>
+        </div>
+    </header>
+    <section>
+        <article class="invoices-block">
+            <h4 class="invoice-head">owned invoices</h4>
+
+            {{#each invoice in ownedInvoices}}
+            <div class="invoice-content six-cells normal">
+                <div class="cell">
+                    <h5 class="iconed user">Owner of the invoice</h5>
+                    <h5 class="iconed user">Payer of the invoice</h5>
+                </div>
+                <div class="cell">
+                    <p class="iconed card">Invoice ID: <span>#{{ invoice.invoiceId }}</span></p>
+                </div>
+                <div class="cell">
+                    <p class="iconed date">Created on: <span>{{invoice.issueDate}}</span></p>
+                    <p class="iconed date">Due date: <span>{{invoice.dueDate}}</span></p>
+                </div>
+                <div class="cell">
+                    <p class="iconed card">Invoice amount: <span>{{invoice.amount}}</span> <span class="currency">{{invoice.currency}}</span></p>
+                </div>
+                <div class="cell">
+                    <p class="iconed star">My cost: <span>40.211212</span> <span class="currency">HVN</span></p>
+                    <p class="iconed check">Profit: <span>10.312142</span> <span class="currency">HVN ( <span class="currency color-green">+20 %</span> )</span></p>
+                </div>
+
+                {{#unless invoice.waitingForBlockchain}}
+                <div class="cell center">
+                    <a href="#" class="blue-button resell-invoice" data-address="{{invoice.invoiceAddress}}">resell</a>
+                </div>
+                {{/unless}}
+
+                {{#if invoice.waitingForBlockchain}}{{> spinner}}{{/if}}
+            </div>
+            {{else}}
+                No invoices
+            {{/each}}
+
+        </article>
+
+        <article class="invoices-block">
+            <h4 class="invoice-head">invoices to be sold</h4>
+            {{#each invoice in onSaleInvoices}}
+            <div class="invoice-content six-cells todo">
+                <div class="cell">
+                    <h5 class="iconed user">Owner of the invoice</h5>
+                    <h5 class="iconed user">Payer of the invoice</h5>
+                </div>
+                <div class="cell">
+                    <p class="iconed card">Invoice ID: <span>#{{ invoice.invoiceId }}</span></p>
+                </div>
+                <div class="cell">
+                    <p class="iconed date">Created on: <span>{{invoice.issueDate}}</span></p>
+                    <p class="iconed date">Due date: <span>{{invoice.dueDate}}</span></p>
+                </div>
+                <div class="cell">
+                    <p class="iconed card">Invoice amount: <span>{{invoice.amount}}</span> <span class="currency">{{invoice.currency}}</span></p>
+                </div>
+                <div class="cell">
+                    <p class="iconed star">My cost: <span>40.211212</span> <span class="currency">HVN</span></p>
+                    <p class="iconed check">Profit: <span>10.312142</span> <span class="currency">HVN ( <span class="currency color-green">+20 %</span> )</span></p>
+                </div>
+
+                {{#unless invoice.waitingForBlockchain}}
+                <div class="cell center">
+                    <a href="#" class="blue-button cancel-invoice" data-address="{{invoice.invoiceAddress}}">cancel</a>
+                </div>
+                {{/unless}}
+
+                {{#if invoice.waitingForBlockchain}}{{> spinner}}{{/if}}
+            </div>
+            {{else}}
+                No invoices
+            {{/each}}
+        </article>
+
+        <article class="invoices-block">
+            <h4 class="invoice-head">closed invoices</h4>
+            {{#each invoice in closedInvoices}}
+            <div class="invoice-content six-cells success">
+                <div class="cell">
+                    <h5 class="iconed user">Owner of the invoice</h5>
+                    <h5 class="iconed user">Payer of the invoice</h5>
+                </div>
+                <div class="cell">
+                    <p class="iconed card">Invoice ID: <span>#{{ invoice.invoiceId }}</span></p>
+                </div>
+                <div class="cell">
+                    <p class="iconed date">Created on: <span>{{invoice.issueDate}}</span></p>
+                    <p class="iconed date">Due date: <span>{{invoice.dueDate}}</span></p>
+                </div>
+                <div class="cell">
+                    <p class="iconed card">Invoice amount: <span>{{invoice.amount}}</span> <span class="currency">{{invoice.currency}}</span></p>
+                </div>
+                <div class="cell">
+                    <p class="iconed star">My cost: <span>40.211212</span> <span class="currency">HVN</span></p>
+                    <p class="iconed check">Profit: <span>10.312142</span> <span class="currency">HVN ( <span class="currency color-green">+20 %</span> )</span></p>
+                </div>
+
+                {{#if invoice.waitingForBlockchain}}{{> spinner}}{{/if}}
+            </div>
+            {{else}}
+                No invoices
+            {{/each}}
+        </article>
+    </section>
+</template>

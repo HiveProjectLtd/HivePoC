@@ -1,0 +1,27 @@
+{
+    "public": {
+        "geth": {
+            "address": "http://37.157.184.220:8545"
+        },
+        "contracts": {
+            "HVN": {
+                "address": "0x63447af77faaab3059c0b5f42c955ce136d054d4"
+            },
+            "HiveProjectPOC": {
+                "address": "0x5a6e93ea1186f5f88b9384241e1e510db684788d"
+            },
+            "Investor": {
+                "address": "0x2ac9b65ae0b789165a512122e7b4dbe9ba5e53b0",
+                "owner": "0x915eed615cb83757666f8128d75498d0072db943"
+            },
+            "ReceivableCompany": {
+                "address": "0x8147499df390f340f4421f4270b933d5be5d5220",
+                "owner": "0x592bd287d4e8849d15d3305b2a95c0bd077c2114"
+            },
+            "PayableCompany": {
+                "address": "0x724dc9c6d79e0f379198d2d5caec6669fd1c4c3e",
+                "owner": "0x9d4f185f64d2a05630e3f8ebd873f12500d611da"
+            }
+        }
+    }
+}

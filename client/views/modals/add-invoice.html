@@ -1,0 +1,49 @@
+<template name="views_modals_add_invoice">
+    <h1>Add invoice</h1>
+    <form class="add-invoice">
+        <div class="row" style="float:left">
+            <div class="col col-4">
+                <h3>Due date</h3>
+                <input type="string" name="due_date" placeholder="MM-DD-YYYY">
+
+                <h3>Invoice ID</h3>
+                <input type="string" name="invoice_id" placeholder="Invoice ID">
+            </div>
+            <div class="col col-4">
+                <h3>Amount</h3>
+                <input type="string" name="amount" placeholder="Amount">
+
+                <h3>Currency</h3>
+                <select style="height: 32px" name="currency">
+                    <option value="HVN">HVN</option>
+                    <option value="EUR">EUR</option>
+                    <option value="ETH">ETH</option>
+                    <option value="BTC">BTC</option>
+                </select>
+            </div>
+            <div class="col col-4">
+                <h3>Country</h3>
+                <input type="string" name="country" placeholder="Country">
+
+                <h3>Max discount</h3>
+                <input type="string" name="max_discount" placeholder="Max discount">
+            </div>
+        </div>
+
+
+        <div class="row" style="">
+            <div class="col col-12">
+                <h3>Customer</h3>
+                {{> dapp_addressInput placeholder="0x000000.." value="0x5422af745c298643627a87eced9449da655136bd" name="customer" autofocus=true class='token-address'}}
+            </div>
+        </div>
+
+        <div class="row" style="float:left">
+            <div class="dapp-modal-buttons">
+                <a href="#" class="cancel">Cancel</a>
+                <button type="submit" class="ok dapp-primary-button">OK</button>
+            </div>
+        </div>
+    </form>
+
+</template>

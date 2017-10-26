@@ -1,0 +1,322 @@
+{
+  "contractName": "Protection",
+  "abi": [],
+  "bytecode": "0x60606040523415600e57600080fd5b603580601b6000396000f3006060604052600080fd00a165627a7a72305820d38082286f50e61cb3ea7e1f4767d258e5ec16ea6baa3878ec79213622734d110029",
+  "deployedBytecode": "0x6060604052600080fd00a165627a7a72305820d38082286f50e61cb3ea7e1f4767d258e5ec16ea6baa3878ec79213622734d110029",
+  "sourceMap": "498:189:8:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "498:189:8:-;;;;;",
+  "source": "/**\n * Short address attack protection Smart Contract implementation.\n * \n * Copyright © 2017 by Hive Project Ltd.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND (express or implied).\n */\n\npragma solidity ^0.4.15;\n\ncontract Protection {\n\n\t/** \n\t * @dev Protection against short address attack\n\t */\n\tmodifier onlyPayloadSize(uint numwords) {\n\t    assert(msg.data.length == numwords * 32 + 4);\n\t    _;\n\t}\n}",
+  "sourcePath": "/Users/dimitarjelev/Projects/ethereum/hive-poc/smartContracts/contracts/protection/Protection.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/home/stanimir/Projects/hive/PoC/smartContracts/contracts/protection/Protection.sol",
+      "exportedSymbols": {
+        "Protection": [
+          2333
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".15"
+          ]
+        },
+        "id": 2314,
+        "name": "PragmaDirective",
+        "src": "472:24:8"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            2333
+          ],
+          "name": "Protection",
+          "scope": 2334
+        },
+        "children": [
+          {
+            "attributes": {
+              "name": "onlyPayloadSize",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "numwords",
+                      "scope": 2332,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2315,
+                        "name": "ElementaryTypeName",
+                        "src": "607:4:8"
+                      }
+                    ],
+                    "id": 2316,
+                    "name": "VariableDeclaration",
+                    "src": "607:13:8"
+                  }
+                ],
+                "id": 2317,
+                "name": "ParameterList",
+                "src": "606:15:8"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2353,
+                              "type": "function (bool) pure",
+                              "value": "assert"
+                            },
+                            "id": 2318,
+                            "name": "Identifier",
+                            "src": "629:6:8"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "length",
+                                  "referencedDeclaration": null,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "data",
+                                      "referencedDeclaration": null,
+                                      "type": "bytes calldata"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2336,
+                                          "type": "msg",
+                                          "value": "msg"
+                                        },
+                                        "id": 2319,
+                                        "name": "Identifier",
+                                        "src": "636:3:8"
+                                      }
+                                    ],
+                                    "id": 2320,
+                                    "name": "MemberAccess",
+                                    "src": "636:8:8"
+                                  }
+                                ],
+                                "id": 2321,
+                                "name": "MemberAccess",
+                                "src": "636:15:8"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "+",
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "commonType": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                      },
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "operator": "*",
+                                      "type": "uint256"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2316,
+                                          "type": "uint256",
+                                          "value": "numwords"
+                                        },
+                                        "id": 2322,
+                                        "name": "Identifier",
+                                        "src": "655:8:8"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "hexvalue": "3332",
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "lValueRequested": false,
+                                          "subdenomination": null,
+                                          "token": "number",
+                                          "type": "int_const 32",
+                                          "value": "32"
+                                        },
+                                        "id": 2323,
+                                        "name": "Literal",
+                                        "src": "666:2:8"
+                                      }
+                                    ],
+                                    "id": 2324,
+                                    "name": "BinaryOperation",
+                                    "src": "655:13:8"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "hexvalue": "34",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "subdenomination": null,
+                                      "token": "number",
+                                      "type": "int_const 4",
+                                      "value": "4"
+                                    },
+                                    "id": 2325,
+                                    "name": "Literal",
+                                    "src": "671:1:8"
+                                  }
+                                ],
+                                "id": 2326,
+                                "name": "BinaryOperation",
+                                "src": "655:17:8"
+                              }
+                            ],
+                            "id": 2327,
+                            "name": "BinaryOperation",
+                            "src": "636:36:8"
+                          }
+                        ],
+                        "id": 2328,
+                        "name": "FunctionCall",
+                        "src": "629:44:8"
+                      }
+                    ],
+                    "id": 2329,
+                    "name": "ExpressionStatement",
+                    "src": "629:44:8"
+                  },
+                  {
+                    "id": 2330,
+                    "name": "PlaceholderStatement",
+                    "src": "680:1:8"
+                  }
+                ],
+                "id": 2331,
+                "name": "Block",
+                "src": "622:63:8"
+              }
+            ],
+            "id": 2332,
+            "name": "ModifierDefinition",
+            "src": "582:103:8"
+          }
+        ],
+        "id": 2333,
+        "name": "ContractDefinition",
+        "src": "498:189:8"
+      }
+    ],
+    "id": 2334,
+    "name": "SourceUnit",
+    "src": "472:215:8"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2017-10-26T11:41:47.957Z"
+}

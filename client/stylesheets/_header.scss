@@ -1,0 +1,152 @@
+header {
+	position: fixed;
+	left: 120px;
+	width: calc(100% - 120px);
+	top: 0;
+	height: 146px;
+	z-index: 1;
+
+	.account-head {
+		background: $white;
+		padding: 20px 30px;
+		overflow: auto;
+		clear: both;
+		height: 115px;
+
+		.account-head-left {
+			position: relative;
+			float: left;
+
+			h2 {
+				color: $dark-blue;
+				text-transform: uppercase;
+				font-weight: 700;
+				font-size: 15px;
+				margin: 0;
+				background: none;
+				padding: 0;
+			}
+
+			p {
+				color: $gray;
+				font-size: 13px;
+				margin: 5px 0 0 0;
+			}
+
+			a.copy {
+				text-decoration: none;
+
+				&:after {
+					font-family: 'FontAwesome';
+					font-size: 10px;
+					content: '\f0c5';
+					color: $brand-light-blue;
+					margin-left: 5px;
+				}
+			}
+
+			span {
+				color: $brand-light-blue;
+				font-weight: 700;
+				display: inline-block;
+
+				&.currency {
+					font-size: 9px;
+					text-transform: uppercase;
+					color: $gray;
+				}
+			}
+
+			// &:before {
+			// 	width: 50px;
+			// 	height: 50px;
+			// 	position: absolute;
+			// 	left: 0;
+			// 	content: '';
+			// 	// @include background-image-retina(#{$images-url}user, 'png', 50px, 50px);
+			// }
+		}
+
+		.account-head-right {
+			float: right;
+
+			.payment-item {
+				display: inline-block;
+				text-align: center;
+				margin: 0 20px;
+
+				&:before {
+					display: block;
+					content: '\f0d6';
+					font-size: 20px;
+					color: $gray;
+					font-family: 'FontAwesome';
+				}
+
+				span {
+					font-size: 15px;
+					color: $brand-light-blue;
+					text-transform: uppercase;
+					font-weight: 700;
+
+					&.currency {
+						font-size: 9px;
+						font-weight: 300;
+					}
+				}
+
+				p {
+					font-size: 11px;
+					text-transform: uppercase;
+					color: $gray;
+					margin-top: 3px;
+				}
+			}
+		}
+	}
+
+	.view-options {
+		background: $white;
+		padding: 10px 30px;
+		border-top: 1px solid $light-gray-2;
+		border-bottom: 1px solid $light-gray-2;
+		box-shadow: 0 1px 3px $light-gray-2;
+		overflow: auto;
+		clear: both;
+
+		.view-options-left,
+		.view-options-right {
+			float: left;
+			padding: 5px 0;
+
+			p {
+				font-size: 13px;
+				color: $dark-gray-2;
+				font-weight: 700;
+				text-transform: uppercase;
+				display: inline-block;
+				margin: 0 3px;
+			}
+
+			.button {
+				font-size: 13px;
+				color: $gray;
+				text-decoration: none;
+				padding: 4px 10px;
+				display: inline-block;
+				margin: 0 3px;
+
+				&.active {
+					border: 1px solid $brand-light-blue;
+					border-radius: 15px;
+				}
+			}
+		}
+
+		.view-options-left {
+			border-right: 1px solid $light-gray-2;
+			margin-right: 20px;
+			padding-right: 20px;
+		}
+	}
+}

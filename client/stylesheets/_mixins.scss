@@ -1,0 +1,45 @@
+/*** Mixin for including double images for retina devices ***/
+@mixin background-image-retina($file, $type, $width, $height) {
+	background: url($file + '.' + $type);
+
+	@media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+		& {
+			background: url($file + '@2x.' + $type);
+			-webkit-background-size: $width $height;
+		}
+	}
+}
+
+/*** Mixin for responsive design ***/
+@mixin respond-to($media) {
+	@if $media == xs {
+		@media (min-width: $screen-xs) { @content }
+	}
+	@else if $media == sm {
+		@media (min-width: $screen-sm) { @content }
+	}
+	@else if $media == md {
+		@media (min-width: $screen-md) { @content }
+	}
+	@else if $media == lg {
+		@media (min-width: $screen-lg) { @content }
+	}
+	@else if $media == xlg {
+		@media (min-width: $screen-xlg) { @content }
+	}
+}
+
+@mixin respond-to-max($media) {
+	@if $media == xs {
+		@media (max-width: $screen-xs - 1) { @content }
+	}
+	@else if $media == sm {
+		@media (max-width: $screen-sm - 1) { @content }
+	}
+	@else if $media == md {
+		@media (max-width: $screen-md - 1) { @content }
+	}
+	@else if $media == lg {
+		@media (max-width: $screen-lg - 1) { @content }
+	}
+}

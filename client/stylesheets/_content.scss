@@ -1,0 +1,205 @@
+section {
+	width: calc(100% - 120px);
+	background: $light-gray;
+	position: relative;
+	left: 120px;
+	top: 146px;
+	overflow: auto;
+	padding-bottom: 43px;
+
+	.invoices-block {
+		margin: 30px;
+
+		.invoice-content.grayed {
+			background: #ddd;
+		}
+		.invoice-content {
+			background: $white;
+			border: 1px solid $light-gray-2;
+			border-radius: 4px;
+			padding: 6px 30px;
+			margin-bottom: 7px;
+			position: relative;
+			overflow: auto;
+			clear: both;
+
+			&:before {
+				width: 3px;
+				height: calc(100% - 12px);
+				position: absolute;
+				left: 6px;
+				top: 6px;
+				content: '';
+			}
+
+			.iconed {
+				padding-left: 20px;
+				position: relative;
+
+				&:before {
+					font-family: 'FontAwesome';
+					font-size: 13px;
+					font-weight: normal;
+					position: absolute;
+					left: 0;
+				}
+
+				&.user {
+					&:before {
+						content: '\f2be';
+					}
+				}
+
+				&.date {
+					&:before {
+						content: '\f073';
+					}
+				}
+
+				&.card {
+					&:before {
+						content: '\f09d';
+					}
+				}
+
+				&.star {
+					&:before {
+						content: '\f006';
+					}
+				}
+
+				&.check {
+					&:before {
+						content: '\f05d';
+					}
+				}
+			}
+
+			h5 {
+				font-size: 13px;
+				color: $gray;
+				font-weight: 700;
+				margin: 10px 0;
+			}
+
+			p {
+				font-size: 13px;
+				color: $gray;
+				margin: 10px 0;
+			}
+
+			span {
+				color: $brand-light-blue;
+				font-weight: 700;
+
+				&.currency {
+					font-size: 9px;
+					text-transform: uppercase;
+					color: $gray;
+				}
+			}
+
+			.cell {
+				float: left;
+
+				.blue-button {
+					margin: 15px 0;
+				}
+
+				span {
+					i {
+						color: $gray;
+						font-weight: 300;
+						font-size: 10px;
+					}
+				}
+
+				&.status {
+					text-align: center;
+
+					p {
+						color: $gray;
+						text-transform: uppercase;
+						font-size: 8px;
+						font-weight: 700;
+						margin: 10px 0px 5px;
+					}
+
+					span {
+						border: 1px solid;
+						border-radius: 15px;
+						padding: 3px 0;
+						min-width: 140px;
+						display: inline-block;
+						font-size: 12px;
+						text-transform: uppercase;
+
+						&.warning {
+							border-color: $status-red;
+							color: $status-red;
+						}
+
+						&.normal {
+							border-color: $status-blue;
+							color: $status-blue;
+						}
+
+						&.success {
+							border-color: $status-green;
+							color: $status-green;
+						}
+
+						&.todo {
+							border-color: $status-yellow;
+							color: $status-yellow;
+						}
+					}
+				}
+			}
+
+			&.six-cells {
+				.cell {
+					width: calc(100% / 6);
+				}
+			}
+
+			&.normal {
+				&:before {
+					background: $status-blue;
+				}
+			}
+
+			&.todo {
+				&:before {
+					background: $status-yellow;
+				}
+			}
+
+			&.success {
+				&:before {
+					background: $status-green;
+				}
+			}
+
+			&.warning {
+				&:before {
+					background: $status-red;
+				}
+			}
+		}
+
+		.invoice-head {
+			font-size: 13px;
+			color: $dark-gray-2;
+			font-weight: 700;
+			text-transform: uppercase;
+			margin-bottom: 6px;
+		}
+	}
+}
+
+
+.dapp-modal-container {
+	margin: 0 auto;
+	left: -60px;
+}

@@ -1,0 +1,16 @@
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 120px;
+	z-index: 1;
+	width: calc(100% - 120px);
+	padding: 15px 30px;
+	background: $white;
+	border-top: 1px solid $light-gray-2;
+	box-shadow: 0 -1px 3px $light-gray-2;
+
+	p {
+		color: $gray;
+		font-size: 12px;
+	}
+}

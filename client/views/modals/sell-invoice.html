@@ -1,0 +1,22 @@
+<template name="views_modals_sell_invoice">
+    <h1>Sell invoice</h1>
+    <form class="sell-invoice">
+        <div class="row">
+            <div class="col col-12">
+                <h3>Offer expires at:</h3>
+                <input type="string" name="expiration_date" placeholder="MM-DD-YYYY">
+                <input type="hidden" name="address" value="{{address}}">
+                <h3>Takeover amount</h3>
+                <input type="string" name="takeover_amount" placeholder="Takeover amount">
+            </div>
+        </div>
+
+        <div class="row" style="float:left">
+            <div class="dapp-modal-buttons">
+                <a href="#" class="cancel">Cancel</a>
+                <button type="submit" class="ok dapp-primary-button">OK</button>
+            </div>
+        </div>
+    </form>
+
+</template>

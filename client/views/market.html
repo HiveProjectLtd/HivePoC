@@ -1,0 +1,70 @@
+<template name="views_market">
+    <header>
+        <div class="account-head">
+            <div class="account-head-left">
+                {{> dapp_identicon identity=investmentAccount class="dapp-small"}}
+                <h2>investment account</h2>
+                <p>{{ investmentAccount }} <a href="#" class="copy" title="Copy"></a></p>
+                <p><span>{{ hvnBalance }}</span> <span class="currency">HVN</span></p>
+            </div>
+        </div>
+        <div class="view-options">
+            <div class="view-options-left">
+                <p>sorting:</p>
+
+                <a href="#" class="button">Price</a>
+                <a href="#" class="button">End block</a>
+                <a href="#" class="button active">Start block</a>
+                <a href="#" class="button">Rating</a>
+            </div>
+            <div class="view-options-right">
+                <p>view:</p>
+
+                <a href="#" class="button">ALL</a>
+                <a href="#" class="button active">First</a>
+                <a href="#" class="button">Second</a>
+            </div>
+        </div>
+    </header>
+    <section>
+        <article class="invoices-block">
+            <h4 class="invoice-head">&nbsp;</h4>
+
+            {{#each invoice in invoices}}
+                <div class="invoice-content six-cells normal">
+                    <div class="cell">
+                        <h5 class="iconed user">Owner of the invoice</h5>
+                        <h5 class="iconed user">Payer of the invoice</h5>
+                    </div>
+                    <div class="cell">
+                        <p class="iconed card">Invoice ID: <span>#{{ invoice.invoiceId }}</span></p>
+                        <p class="iconed date">Offer expires: <span>{{ invoice.expirationDate }}</span></p>
+                    </div>
+                    <div class="cell">
+                        <p class="iconed date">Created on: <span>{{invoice.issueDate}}</span></p>
+                        <p class="iconed date">Due date: <span>{{ invoice.dueDate }}</span></p>
+                    </div>
+                    <div class="cell">
+                        <p class="iconed card">Invoice amount: <span>{{ invoice.amount }}</span> <span class="currency">{{ invoice.currency }}</span></p>
+                        <p class="iconed card">Takeover amount: <span>{{ invoice.takeoverAmount }}</span> <span class="currency">{{ invoice.currency }}</span></p>
+                    </div>
+                    <div class="cell">
+                        <p class="iconed star">Rating: <span>98%</span> <span class="currency">stable</span></p>
+                        <p class="iconed check">Verified: <span>{{#if invoice.isConfirmed }}Yes{{else}}No{{/if}}</span></p>
+                    </div>
+
+                    {{#unless invoice.waitingForBlockchain}}
+                    <div class="cell center">
+                        <a href="#" class="blue-button buy-invoice" data-address="{{invoice.invoiceAddress}}">buy it</a>
+                    </div>
+                    {{/unless}}
+
+                    {{#if invoice.waitingForBlockchain}}{{> spinner}}{{/if}}
+                </div>
+            {{else}}
+                No invoices
+            {{/each}}
+
+        </article>
+    </section>
+</template>

@@ -1,0 +1,80 @@
+nav {
+	width: 120px;
+	background: $brand-blue;
+	opacity: 0.9;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 2;
+
+	.logo {
+		@include background-image-retina(#{$images-url}hive_logo, 'png', 90px, 39px);
+		display: block;
+		width: 90px;
+		height: 39px;
+		margin: 30px 15px;
+	}
+
+	.tabbed {
+		.tab {
+			margin-bottom: 30px;
+
+			.tab-head,
+			.tab-item {
+				background: $gray-blue;
+				padding: 10px;
+				font-size: 13px;
+				color: $white;
+				font-weight: 700;
+				text-transform: uppercase;
+				text-align: center;
+			}
+
+			.tab-item.active {
+				background: rgba(255,255,255,0.1);
+			}
+
+			.tab-item {
+				background: transparent;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+				margin: 0 8px;
+				display: block;
+				text-decoration: none;
+
+				&:last-child {
+					border-bottom: 0;
+				}
+
+				&:before {
+					content: '';
+					display: block;
+					margin: 0 auto 5px;
+					width: 50px;
+					height: 60px;
+					background-repeat: no-repeat !important;
+					background-position: center !important;
+				}
+
+				&.dashboard {
+					&:before {
+						@include background-image-retina(#{$images-url}dashboard, 'png', 50px, 50px);
+					}
+				}
+
+				&.list {
+					&:before {
+						@include background-image-retina(#{$images-url}list, 'png', 50px, 60px);
+					}
+				}
+
+				&.receivable,
+				&.payable {
+					&:before {
+						@include background-image-retina(#{$images-url}receivable_payable, 'png', 50px, 50px);
+					}
+				}
+			}
+		}
+	}
+}

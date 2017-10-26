@@ -1,0 +1,42 @@
+.blue-button {
+	display: inline-block;
+	border: 1px solid $brand-light-blue;
+	padding: 5px 0;
+	text-align: center;
+	min-width: 130px;
+	font-size: 12px;
+	color: $brand-light-blue;
+	text-decoration: none;
+	border-radius: 20px;
+	text-transform: uppercase;
+	font-weight: 700;
+
+	&.inverted {
+		background: $brand-light-blue;
+		color: $white;
+	}
+}
+
+.color-green {
+	color: $status-green !important;
+}
+
+.color-red {
+	color: $status-red !important;
+}
+
+.color-yellow {
+	color: $status-yellow !important;
+}
+
+.color-blue {
+	color: $status-blue !important;
+}
+
+.pull-right {
+	float: right;
+}
+
+.center {
+	text-align: center;
+}

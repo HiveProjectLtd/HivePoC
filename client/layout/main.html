@@ -1,0 +1,27 @@
+<template name="layout_main">
+    <div id="wrapper">
+        <nav>
+          <a href="#" class="logo" title="Hive"></a>
+          <div class="tabbed">
+            <div class="tab">
+              <div class="tab-head">investors</div>
+              <a href="/portfolio" class="tab-item dashboard {{isActive 'portfolio'}}">portfolio</a>
+              <a href="/market" class="tab-item list {{isActive 'market'}}">market</a>
+            </div>
+            <div class="tab">
+              <div class="tab-head">company</div>
+              <a href="/receivable" class="tab-item receivable {{isActive 'receivable'}}">receivable</a>
+              <a href="/payable" class="tab-item payable {{isActive 'payable'}}">payable</a>
+            </div>
+          </div>
+        </nav>
+
+
+        {{> yield}}
+
+        <footer>
+          <p>Copyright by hive-project.net. All rights reserved 2017.</p>
+        </footer>
+      </div>
+      {{> dapp_modalPlaceholder}}
+</template>
